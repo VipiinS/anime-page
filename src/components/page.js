@@ -1,18 +1,13 @@
 import React from 'react'
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import Slice from '../Slice';
 import AnimeBox from './AnimeBox/AnimeBox';
 
 
 
 
 const Page = () => {
-// console.log("inside page component");
-
+  
     const {animeItems, isLoading } = useSelector((store)=>(store.anime));
-    // console.log("animeItems"+animeItems);
 
       const Elements = animeItems.map((item)=>{
         return(

@@ -8,7 +8,6 @@ const AnimeBox = (props) => {
         `${genre} `
       ))}
     </p>
-    console.log(genreElements);
     return (
     <div>
         <div className='anime-container'>

@@ -17,6 +17,78 @@
     gap: 1rem;
 }
 
+.loading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 2rem;  
+}
+
+.loading-text{
+    padding-right: 5.5rem;
+    font-size: 2rem;
+}
+
+.error{
+  position: relative;
+  padding: 2rem;
+}
+
+.loader {
+    width: 10px;
+    height: 10px;
+    position: relative;
+  }
+  .loader::before , .loader::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    width: 10em;
+    height: 10em;
+    background-image:
+      radial-gradient(circle 10px, #000 100%, transparent 0),
+      radial-gradient(circle 10px, #000 100%, transparent 0),
+      radial-gradient(circle 10px, #000 100%, transparent 0),
+      radial-gradient(circle 10px, #000 100%, transparent 0),
+      radial-gradient(circle 10px, #000 100%, transparent 0),
+      radial-gradient(circle 10px, #000 100%, transparent 0),
+      radial-gradient(circle 10px, #000 100%, transparent 0),
+      radial-gradient(circle 10px, #000 100%, transparent 0);
+    background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
+                         13em -13em, -13em -13em, 13em 13em, -13em 13em;
+      background-repeat: no-repeat;
+    font-size: 0.5px;
+    border-radius: 50%;
+    animation: blast 1s ease-in infinite;
+  }
+  .loader::after {
+    font-size: 1px;
+    background: #000;
+    animation: bounce 1s ease-in infinite;
+  }
+  
+  @keyframes bounce {
+    0% , 100%{ font-size: 0.75px }
+    50% { font-size: 1.5px }
+  }
+  @keyframes blast {
+    0% , 40% {
+      font-size: 0.5px;
+    }
+    70% {
+      opacity: 1;
+      font-size: 4px;
+    }
+     100% {
+       font-size: 6px;
+      opacity: 0;
+    }
+  }
+
 
 /* @media screen and (min-width: 250px){
     .App{

@@ -1,25 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { useState } from "react";
 
-
-  
-const options = {
-    method: 'GET',
-    url: 'https://anime-db.p.rapidapi.com/anime',
-    params: {page: '1', size: '30', sortOrder: 'asc'},
-    headers: {
-      'X-RapidAPI-Key': '1f4595ff8amsh262facc5fe4502fp199435jsnee5812397c94',
-      'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
-    }
-  };
-
-  let theObj;
-
+let theObj;
 export const getAllItems = createAsyncThunk('./anime/getAllItems',
-    async ()=>{
+    async (options,{dispatch,getState})=>{
+        //to use the parameter passed to the creat easync thunk funtion
+        // console.log(options);
+        // to use the reducer functions inside the create asyncthunk function
+        // dispatch(getData());
+        // to use the states in the store,we can use this 
+        // const state = useState();
+
+        const state = getState()
+        console.log(state.anime.options);
         try {
-            await axios.request(options)
+            await axios.request(state.anime.options)
             .then((res)=>{
                 theObj = res.data.data
                 return theObj;
@@ -36,7 +33,17 @@ export const getAllItems = createAsyncThunk('./anime/getAllItems',
 const initialState = {
     animeItems:[],
     isLoading:true,
-    quote:""
+    quote:"",
+    error:false,
+    options : {
+        method: 'GET',
+        url: 'https://anime-db.p.rapidapi.com/anime',
+        params: {page: '1', size: '30', sortOrder: 'asc'},
+        headers: {
+          'X-RapidAPI-Key': '1f4595ff8amsh262facc5fe4502fp199435jsnee5812397c94',
+          'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
+        }
+      }
 };
 
 const slice = createSlice({
@@ -44,7 +51,7 @@ const slice = createSlice({
     initialState,
     reducers:{
         getData:(state)=>{
-            
+            console.log("inside getDATA");
         }
     },
     extraReducers:{
@@ -54,12 +61,14 @@ const slice = createSlice({
         },
         [getAllItems.fulfilled]:(state,action)=>{
             console.log("fulfilled");
-            state.isLoading = false
+            state.isLoading = false;
+            state.error = false;
             state.animeItems = theObj;
         },
         [getAllItems.rejected]:(state)=>{
             console.log("rejectd");
-            state.isLoading = true
+            state.isLoading = false
+            state.error = true
         }
     }
 })
