@@ -4,8 +4,11 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { useState } from "react";
 
 let theObj;
+
 export const getAllItems = createAsyncThunk('./anime/getAllItems',
+
     async (options,{dispatch,getState})=>{
+
         //to use the parameter passed to the creat easync thunk funtion
         // console.log(options);
         // to use the reducer functions inside the create asyncthunk function
@@ -14,7 +17,6 @@ export const getAllItems = createAsyncThunk('./anime/getAllItems',
         // const state = useState();
 
         const state = getState()
-        console.log(state.anime.options);
         try {
             await axios.request(state.anime.options)
             .then((res)=>{
@@ -51,7 +53,11 @@ const slice = createSlice({
     initialState,
     reducers:{
         getData:(state)=>{
-            console.log("inside getDATA");
+
+        },
+        changeOptions:(state,action)=>{
+            console.log(action.payload);
+            console.log(state);
         }
     },
     extraReducers:{
@@ -73,6 +79,6 @@ const slice = createSlice({
     }
 })
 
-export const {getData} = slice.actions;
+export const {getData,changeOptions} = slice.actions;
 export default slice.reducer;
 
