@@ -8,26 +8,17 @@ import {changeOptions} from './Slice'
 
 function App() {
 
-  let options = {
-    method: 'GET',
-    url: 'https://anime-db.p.rapidapi.com/anime',
-    params: {page: '1', size: '20', search: '', sortOrder: 'asc'},
-    headers: {
-      'X-RapidAPI-Key': '1f4595ff8amsh262facc5fe4502fp199435jsnee5812397c94',
-      'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
-    }
-  };
+  let options
 
   const dispatch = useDispatch();
-  const {animeItems, isLoading, error } = useSelector((store)=>(store.anime))
-
-  //for getting data from API for the first time..
-  useEffect (()=>{
-    dispatch(getAllItems(options))
-  },[])
-
+  const {isLoading, error } = useSelector((store)=>(store.anime))
   const [name,setName] = useState("")
   const [emptyError,setEmptyError] = useState(false);
+  //for getting data from API for the first time..
+  useEffect (()=>{
+    dispatch(getAllItems())
+  },[])
+
 
   // the loading screen
   if(isLoading){
@@ -66,7 +57,9 @@ function App() {
                 'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
               }
             };
-            dispatch(changeOptions(options))}
+            dispatch(changeOptions(options))
+            dispatch(getAllItems())
+          }
           }
         }
           />

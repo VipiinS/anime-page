@@ -6,6 +6,7 @@
     justify-content: center;
     align-self: center;
     align-content: center;
+    
 }
 
 .App{
@@ -117,10 +118,14 @@
     }
 
 }
+@media screen and (min-width: 1200px){
+    .App{
+        grid-template-columns: repeat(5,1fr);
+    }
+}
 @media screen and (min-width: 1500px){
     .App{
         grid-template-columns: repeat(6,1fr);
     }
-
 }
 
