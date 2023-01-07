@@ -7,7 +7,7 @@ import AnimeBox from './AnimeBox/AnimeBox';
 
 const Page = () => {
   
-    const {animeItems, isLoading } = useSelector((store)=>(store.anime));
+    const {animeItems} = useSelector((store)=>(store.anime));
 
       const Elements = animeItems.map((item)=>{
         return(

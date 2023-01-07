@@ -11,11 +11,9 @@ function App() {
   let options
 
   const dispatch = useDispatch();
-  const {animeItems, isLoading, error } = useSelector((store)=>(store.anime))
+  const {isLoading, error } = useSelector((store)=>(store.anime))
   const [name,setName] = useState("")
   const [emptyError,setEmptyError] = useState(false);
-  const [refresh,setRefresh] = useState(true);
-
   //for getting data from API for the first time..
   useEffect (()=>{
     dispatch(getAllItems())
@@ -60,7 +58,6 @@ function App() {
               }
             };
             dispatch(changeOptions(options))
-            setRefresh((prevState)=>!prevState)
             dispatch(getAllItems())
           }
           }

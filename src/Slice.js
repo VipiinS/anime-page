@@ -1,7 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useState } from "react";
 
 let theObj;
 
