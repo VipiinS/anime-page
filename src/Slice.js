@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { useState } from "react";
@@ -56,8 +56,8 @@ const slice = createSlice({
 
         },
         changeOptions:(state,action)=>{
-            console.log(action.payload);
-            console.log(state);
+            state.options = action.payload;
+            console.log(current(state))
         }
     },
     extraReducers:{
