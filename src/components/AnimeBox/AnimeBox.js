@@ -1,5 +1,6 @@
 import React from 'react'
 import './animeBox.css' 
+import { Link } from 'react-router-dom'
 
 
 const AnimeBox = (props) => {
@@ -19,6 +20,8 @@ const AnimeBox = (props) => {
             <h4 className='ranking'>Ranking : {props.ranking}</h4>
             {genreElements}
           </div>
+          <p>See more..</p>
+          <Link to={`/${props.id}`}>See more</Link>
         </div>
     </div>
   )
