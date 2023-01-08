@@ -5,9 +5,12 @@ import { getAllItems } from "../Slice";
 import './Checkpage.css'
 import FirstPage from "./FirstPage";
 import { changeOptions } from "../Slice";
+import { Alert } from "@mui/material";
+import { Container, CssBaseline, Typography } from "@material-ui/core";
+import useStyles from "./styles";
 
 function CheckPage() {
-
+  const classes = useStyles();
   let options
 
   const dispatch = useDispatch();
@@ -31,14 +34,18 @@ function CheckPage() {
     </div>
   }
     return(
-      <div className="container">
+
+      <CssBaseline>
+
+        <Container style={{ background: '#eeeeee' }}>
+          
           <input
             type="text"
             placeholder="Enter an anime name"
             onChange={(e)=>{
               setName(e.target.value)
             }}
-          />
+            />
           <input
           type="submit"
           value="search"
@@ -48,9 +55,9 @@ function CheckPage() {
             }
             else{
               setEmptyError(false)
-            options = {
-              method: 'GET',
-              url: 'https://anime-db.p.rapidapi.com/anime',
+              options = {
+                method: 'GET',
+                url: 'https://anime-db.p.rapidapi.com/anime',
               params: {page: '1', size: '20', search: name, sortOrder: 'asc'},
               headers: {
                 'X-RapidAPI-Key': '1f4595ff8amsh262facc5fe4502fp199435jsnee5812397c94',
@@ -60,14 +67,18 @@ function CheckPage() {
             dispatch(changeOptions(options))
             dispatch(getAllItems())
           }
-          }
         }
-          />
-        {emptyError && <h3 className="empty-error">Enter a name</h3>}
-        <div className="CheckPage">
+      }
+      />
+        {/* {emptyError && <h3 className="empty-error">Enter a name</h3>} */}
+        {emptyError && <Alert severity="error" variant="standard">
+          <Typography variant="subtitle1">
+          Enter a valid name
+          </Typography>
+          </Alert>}
           <FirstPage/>
-        </div>
-      </div>
+      </Container>
+      </CssBaseline>
     )
 }
 

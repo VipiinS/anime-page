@@ -26,15 +26,11 @@ const FirstPage = () => {
 
   return (
         (
-    <div className="container">
-      <div className="App">
-        <Container className={classes.cardGrid} maxWidth='md'>
-          <Grid container spacing={2}>
+        <Container className={classes.cardGrid} maxWidth='lg'>
+          <Grid container spacing={4}>
           {Elements}
           </Grid>
         </Container>
-      </div>
-    </div>
   )
   )
 }
