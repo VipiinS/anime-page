@@ -1,6 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import CheckPage from "./pages/CheckPage";
 import DetailPage from "./pages/DetailPage";
+import { AppBar } from "@material-ui/core";
 
 
 function App() {
