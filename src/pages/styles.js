@@ -61,11 +61,12 @@ const useStyles = makeStyles((theme) => ({
     },
 
     bigContainer:{
-        height:'1000'
+        height:'1000',
+        width:'40vh',
     },
     bigCard:{
         height:'50vh',
-        width:'50vh'
+        width:'50vh',
     },
     bigImage:{
         height:'100%',

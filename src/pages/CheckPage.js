@@ -7,10 +7,8 @@ import FirstPage from "./FirstPage";
 import { changeOptions } from "../Slice";
 import { Alert } from "@mui/material";
 import { Container, CssBaseline, Typography } from "@material-ui/core";
-import useStyles from "./styles";
 
 function CheckPage() {
-  const classes = useStyles();
   let options
 
   const dispatch = useDispatch();

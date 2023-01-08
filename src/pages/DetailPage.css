@@ -1,29 +1,52 @@
-*{
-    padding: .5rem;
-    margin: 0;
-}
 
-.container1{
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,100;1,300&display=swap'); 
+
+*{
+    font-family: 'Roboto', sans-serif;
+    padding: 0 0;
+    
+}
+.paper_container{
+    /* display: grid;
+    grid-template-columns: repeat(2,1fr); */
     display: flex;
-    padding: 0;
+}
+.title{
+    font-size: 3rem;
+}
+img{
+    padding: 1rem;
 }
 .infos{
-    padding: .5rem;
+    padding-left: 30px;
 }
-h4{
-    padding-top: 1rem;
+.ranking{
+    font-size: 1.8rem;
 }
-.container{
-    display: grid;
-    grid-template-columns: 1fr;
+.genre{
+    text-transform: capitalize;
+    font-weight: 500;
 }
-p{
-    text-justify:newspaper;
-    line-height: 1.5rem;
+.episodes{
+    font-weight: 300;
 }
-.thumb{
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
+.description{
+    padding: 2rem;
+    font-weight: 300;
+    line-height: 2.5rem;
+}
+
+
+@media screen and (max-width: 400px){
+    .paper_container{
+        flex-direction: column;
+        padding-left: 5px;
+    }
+    .title{
+        font-size: 2rem;
+    }
+    .ranking{
+        font-size: 1.3rem;
+    }
+
 }
