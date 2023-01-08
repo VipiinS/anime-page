@@ -69,6 +69,7 @@ const slice = createSlice({
             state.isLoading = false;
             state.error = false;
             state.animeItems = theObj;
+            console.log(theObj);
         },
         [getAllItems.rejected]:(state)=>{
             console.log("rejectd");

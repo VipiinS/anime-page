@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from "react-redux";
-import AnimeBox from './AnimeBox/AnimeBox';
+import AnimeBox from '../components/AnimeBox/AnimeBox';
 
 
 
 
-const Page = () => {
+const FirstPage = () => {
   
     const {animeItems} = useSelector((store)=>(store.anime));
 
@@ -13,6 +13,7 @@ const Page = () => {
         return(
           <AnimeBox
             key = {item._id}
+            id = {item._id}
             title = {item.title}
             genres = {item.genres}
             ranking = {item.ranking}
@@ -33,4 +34,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default FirstPage
