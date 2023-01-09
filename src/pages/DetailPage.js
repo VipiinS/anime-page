@@ -11,12 +11,9 @@ const DetailPage = () => {
 
     const {id} = useParams();
     const {animeItems} = useSelector((store)=>(store.anime));
-    console.log(animeItems);
     const item = animeItems.find((items=>{
-        console.log("all id:"+ animeItems._id);
         return items._id === id
     }))
-    console.log(item);
 
   return (
     <>  

@@ -35,45 +35,7 @@ function CheckPage() {
 
       <CssBaseline>
 
-        <Container style={{ background: '#eeeeee' }}>
-          
-          <input
-            type="text"
-            placeholder="Enter an anime name"
-            onChange={(e)=>{
-              setName(e.target.value)
-            }}
-            />
-          <input
-          type="submit"
-          value="search"
-          onClick={()=>{
-            if(name === ''){
-              setEmptyError(true)
-            }
-            else{
-              setEmptyError(false)
-              options = {
-                method: 'GET',
-                url: 'https://anime-db.p.rapidapi.com/anime',
-              params: {page: '1', size: '20', search: name, sortOrder: 'asc'},
-              headers: {
-                'X-RapidAPI-Key': '1f4595ff8amsh262facc5fe4502fp199435jsnee5812397c94',
-                'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
-              }
-            };
-            dispatch(changeOptions(options))
-            dispatch(getAllItems())
-          }
-        }
-      }
-      />
-        {/* {emptyError && <h3 className="empty-error">Enter a name</h3>} */}
-        {emptyError && <Alert severity="error" variant="standard">
-          <Typography variant="subtitle1">
-          Enter a valid name
-          </Typography>
-          </Alert>}
+        <Container style={{ background: '#eeeeee' }}>  
           <FirstPage/>
       </Container>
       </CssBaseline>
