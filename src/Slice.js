@@ -26,7 +26,7 @@ export const getAllItems = createAsyncThunk('./anime/getAllItems',
                 console.error(error);
             });
         } catch (error) {
-            console.log(error.response);
+            console.log(error);
         }
 })
 

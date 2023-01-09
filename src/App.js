@@ -76,7 +76,7 @@ function App() {
       <AppBar position="static">
         <Toolbar>
           <IconButton
-            size="large"
+            size="small"
             edge="start"
             color="inherit"
             aria-label="open drawer"
@@ -84,7 +84,7 @@ function App() {
             onClick={()=>{console.log("clced")}}
 
           >
-            <DataObjectIcon            />
+            <DataObjectIcon/>
           </IconButton>
           <Typography
             variant="h6"
@@ -92,14 +92,14 @@ function App() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            AniDB
+            AniD
           </Typography>
+          
           <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
+              label="small"
+              size="small"
               inputProps={{ 'aria-label': 'search' }}
               onChange={(e)=>{
                 setName(e.target.value)
